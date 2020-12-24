@@ -1,256 +1,41 @@
-20201222 오전 수업 내용 : 
 
-수업 시작전 전날 내용 발표(앞으로 매일)
+HTML :  Hyper Text Markup Language
 
-계발환경 구축
-웹 아키텍쳐
-jsp/servlet, spring, spring boot
-배치
-
-Presentation : 사용자 인터페이스(화면)
-Business logic : 업무처리 로직
-Data(access logic) : data 저장/접근 or database server
-
-확장이 힘드니 2개로 나눔
-
-전용 Client프로그램 - 속도가 빠르다.(병원 진료, 차트 프로그램)
-Database만 공유하고 UI, business 로직은 Coient프로그램에 탑재
-Client간 통신이 힘듬/ 보안문제
+http: 80
+https: 443
 
 
-전용 Client프로그램 - 속도가 빠르다.(온라인 게임)
-Server를 통해 Client간 통신 가능(business logic)
-Client프로그램의 배포의 문제
-
-Client가 프로그램을 업데이트 하지 않았을 경우
-서로 다른 버전의 프로그램으로 인한 로직 제어 문제
-업데이트를 하지 않을 경우 서비스를 이용하지 못 할 수도 있음
-프로그램 업데이트로 인한 베포문제 -> Client수 만큼 베포가 이루어져야 한다.
-
-Web Architecture
-(웹 브라우저로 통일)
-
-전용 Client 프로그램 -> Web browser
-Client : 화면 제어 (javascript)
-Server : 비지니스 로직 제어(jsp, mvc framework)
-업데이트 된 부분은 Server에만 베포
-
-Web Architecture - 제한사항
-
-브라우저 기능에 의존 -> 제한적인 UI(Flex, flash) - flex로 짜면 느림
-브라우저 기능을 벗어나는 추가기능 사용시 호환성 / 보안문제(Active x) - 보안문제로 Active x사라짐
-모든 브라우저가 동일한 기능을 제공하지 않음(브라우저별 호환문제, Cross Browsing)
-같은 브라우저의 버전별 호환 문제
-
-자바스크립도 브라우저마다 다름
-버전마다 호환문제도 있음
-
-Cs(클라이언트 서버) vs Web 차이점
-
-서버도 Web Server, WebApplication Server 가 있다.
-아파치 톰켓은 WebApplication Server에 속한다.
-
-Web server : client의 요청을 받아서 결과를 전송, 정적자원 처리에 최적화(html, css, js, image)
-
-Web Application server : 로직에 의해 동적 컨텐츠를 생성하여 Web server에 전달, Webserver의 역할을 겸함(tomcat)
-
-톰켓에 Web Server 쓸 수 있는 기능을 탑재함
-
-node1 이런건 슬레이브(?)로 부름
-
-로드 밸런싱 -  적절?하게 배치
-
-웹브라우저는 크롬, 서버는 톰켓, DB는 오라클 사용
-
-Clinet Server Architecture와 Web Architecture 비교
-Web architecture의 장점
-앞으로 개발시 필요한 환경들(이클립스, tomcat, oracle 등)
-형상관리의 필요성 이해
-
-Web(World Wide Web) 정의 : 
-- 인터넷에 연결된 컴퓨터들을 통해 사람들이 정보를 공유할 수 있는 정보 공간
-- HTTP 프로토콜, 하이퍼텍스트, HTML 형식 등을 사용하여 그림과 문자를 교환하는 전송방식
-- URL을 통해 요청
-
-초기웹은 정적인 공간, 문서 공유를 위한 목적으로 탄생(웹페이지)
-동적으로 컨텐츠를 생성할 수 있는 Web 프로그래밍(웹어플리케이션) 환경 등장(apple, jsp, asp, 웹 어플리케이션)
-
-웹 페이지 -> 웹 어플리케이션
-
-apple는 웹 페이지?의 시초
-
-예전에는 정적?이라면 현재는 동적으로 환경이 구성됨(?)
-
-자바전에 CGI 방식으로 서버 구성
-프로그램 단위로 호출되어서 사용자가 많으면 부담이 심함
-
-cgi?보다는 nodejs가 좋음
-
-servlet/jsp는 thread방식으로 실행 -> 동시처리 성능이 우수
-servlet/jsp는 main 함수를 통해 실행하지 않는다.
-서버가 jsp를 실행해줌
-
-[protocol] : [host][:port number][path][filename][.exter].....[?query String]
-?뒤에 오는걸 파라미터라함
-
-http : 80
-https : 443
-
-servlet : 자바의 웹 개발 표준 스펙, 스펙에 따라 만들어진 소스. 멀티 쓰레드로 실행
-
-jsp : 실행 코드 방식인(java) servlet의 스크립트 방식의 표준 스펙
-	jsp는 실행시 servlet으로 변환되어 실행
-
-Web Container : 표준 규악에 따라 구현된 웹 어플리케이션을 관리하고 실행할 수 있는 소프트웨어(tomcat, resin, jboss등)
-
-Web Container는 생각보다 까다로워서 구현한 나라가 생각보다 없다.(한 9개 정도?)
-
-Servlet vs JSP
-
-Servlet : 자바 코드 안에 html
-JSP : html 문서 안에 자바 코드
-
-위의 2개 차이점은 편의성의 차이점이라고 보면된다.
-
-정리 : 
-
-웹의 탄생 배경
-URL을 통한 웹서버에 요청/응답 과정
-자바기반의 웹 프로그래밍 개요(Servlet / JSP)
-
-http://spring.io/에 접속
-
-https://spring.io/tools에 들어가서
-4.9.0-WINDOWS 64-BIT다운
-
-최종 프로젝트때 기업에서 2명이 옴 그래서 주말에 토요일에 나와서 발표
-
-D:\B_Util\3.Eclipse에 spring-tool-suite-4-4.9.0.RELEASE-e4.18.0-win32.win32.x86_64.self-extracting 설치
-그리고 안쪽에 contents.zip가 있는데 이거 압출 풀기
-
-환경 기반 설정함
-
-Servlet :
-Server program + let(작다를 뜻하는 접미어) : 작은 서버 프로그램
-Apple : Application + let : 작은 응용 프로그램
-
-J2EE의 표준 스펙중 하나
- - Servlet, JSP, EJB, EL, java mail.....
-
-JAVA를 사용하여 동적 웹페이지를 생성하는 표준 스펙
-HttpServlet 클래스를 상속하여 작성
-
-
-Web Application Serer : WAS(jboss, IBM 웹스피어)
+Web Application Server : WAS (jboss, IBM 웹스피어)
 	Servlet Container + EJB Container
 
-Servlet - container[Web Container] : 
-Servlet를 담을 수 있는 그릇
-대표적으로는 (tomcat)
+servlet Container [Web Container] (tomcat)
 
-Servlet - container : 
-요청을 받아서 응답을 만들어준다.
-- Web Server(Servlet container + EJB Container)
-- 서블릿을 관리 실행 할 수 있는 프로그램(서버)
-- 
-
-MIME : Multipurpose Internet Mail Extensions
-전자우편을 위한 인터넷 표준 포맷
-
-간이 전자 우편 전송 프로토콜(Simple Mail Transfer Protocol, SMTP)
-
-SMTP에서는 기본적으로 7비트 기준 아스키 코드만 전송 가능
--영어가 아닌 외국어, 특수기호, 이미지, 파일 전송을 위해서는 인코딩이 필요 => MIME
-
-HTTP에서도 차용★
-
-MIME에
-
-Content-Type(MIME-Type)
-
-어떤 형식의 자료를 송/수신 하는지 표시
-MIME의 종류를 표시
-
-html/text, applicaiton/json, image/png, multipart
-
-Servlet 생성/등록
-클래스 생성(HttpServlet상속)
-
-url mapping
-- url-servlet
-- web.xml
-- @WebServlet
-
-
-D:\B_Util\3.Eclipse\spring-tool-suite-4-4.9.0.RELEASE-e4.18.0-win32.win32.x86_64.self-extracting\sts-4.9.0.RELEASE에
-SpringToolSuite4.exe 작업 표시줄에 고정
-D:\A_TeachingMaterial\6.JspSpring\workspace로 워크스페이스 고정
-
-스프링 파일은 maven로 생성
-create a simple project 네모칸 체크하기
 
 Maven Project
-Group id : 해당 프로젝트를 진행하는 회사에 대한 정보
-	회사의 도메인 역순으로 기술
-예시 : naver.com ==> com.naver 이런식으로 역순
-	google.com ==> com.google
-	ddit.or.kr ==> kr.or.ddit
+Group id : 해당 프로젝트를 진행하는 회사에 대한정보 
+	일반적으로 회사의 도메인 역순으로 기술
+              naver.com  ==> moc.revan
+                             ==> com.naver
+             google.com ==> com.google
+	ddit.or.kr    ==> kr.or.ddit
 
 Artifact id : Group id에 해당하는 회사에서 진행하는 프로젝트명
-	google : GMAIL, GOOGLE DRIVE
+               google : GMAIL, GOOGLE DRIVE
 
-VERSION : 프로젝트의 버전
-	대.중.소
-예시 : 3.5.2
+version : 프로젝트의 버전
+            대.중.소    3.5.2
+
 
 jar : Java ARchive : 클래스들을 묶어 놓은 파일, 압축파일
 
 class, html, jsp, image, css, javascript
-
 war : Web ARchive : 웹 프로그램을 묶어 놓은 파일
-	tomcat의 webapps 폴더에 war 파일을 복사 해놓고 톰켓을 기동하면
-	war 파일을 톰캣이 자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다.
-
-이클립스 워크스페이스에서 스프링 워크스페이스 만들고 maven 만들고 jave ee tools에 ger뭐시기 클릭해주기
+       tomcat의 webapps 폴더에 war 파일을 복사 해놓고 톰캣을 기동하면 
+       war 파일을 톰캣이 자동으로 압축을 해제하여 웹 어플리케이션이 서비스 되도록 한다
 
 pom : Project Object Model - 프로젝트에 대한 설정 정보
-	해당 프로젝트를 만든 회사
-	프로젝트 이름
-	프로젝트의 버전
-	프로젝트에서 필요로 하는 의존성(dependency) - 라이브러리(ojdbc6.jar)
+    해당 프로젝트를 만든 회사
+    프로젝트 이름
+    프로젝트의 버전
+    프로젝트에서 필요로하는 의존성(dependency) - 라이브러리(ojdbc6.jar)
 pom.xml
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
