@@ -7,22 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
+
 	
 	request.getContentType() : <%= request.getContentType() %><br>
 	request.getMethod() : <%= request.getMethod() %><br>
+	request.getRequestURI : <%= request.getRequestURI() %><br>
 	request.getContextPath() : <%= request.getContextPath() %><br>
 	request.getServerPort() : <%= request.getServerPort() %><br>
-		
 	
-	webapp/index.jsp
-	
-	webapp/image/brown.png 
-	
-	index.jsp
-	
-	<!-- <img src="/jsp/image/brown.png"> -->
-	<img src="<%= request.getContextPath() %>/image/brown.png">
 
 </body>
 </html>
