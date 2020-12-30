@@ -14,21 +14,28 @@
     <servlet-class>kr.or.ddit.servlet.basic.BasicServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>basicServlet</servlet-name>
     <url-pattern>/basicServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <description></description>
     <display-name>TimesTableServlet</display-name>
     <servlet-name>TimesTableServlet</servlet-name>
     <servlet-class>kr.or.ddit.servlet.basic.TimesTableServlet</servlet-class>
   </servlet>
-  
   <servlet-mapping>
     <servlet-name>TimesTableServlet</servlet-name>
     <url-pattern>/TimesTableServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginController</display-name>
+    <servlet-name>LoginController</servlet-name>
+    <servlet-class>kr.or.ddit.login.web.LoginController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginController</servlet-name>
+    <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
 </web-app>
