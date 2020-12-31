@@ -13,6 +13,18 @@
 	<% %> <!-- 스크립ㅌ,ㄹㄹ;ㅅ : 자바 코드를 작성 -->
 	<% Date date = new Date(); %>
 	Hello, World <%= date %> <!-- 표현식 : 문자열 출력 -->
+	
+	<table>
+		<% for(int j = 1; j <=9; j++) {  
+			out.write("<tr>");
+			
+			for(int i = 2; i <=9; i++) { %>
+					
+				<td> <%= i %> * <%= j %> = <%= i*j %></td>
+			<% } %>
+			</tr>	
+		<% } %>
+	</table>
 
 </body>
 </html>
