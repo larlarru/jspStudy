@@ -21,25 +21,25 @@ public class SumCalculation extends HttpServlet{
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.setContentType("text/html;charset=utf-8");
+		/*
+		 * resp.setContentType("text/html;charset=utf-8");
+		 * 
+		 * PrintWriter pw = resp.getWriter();
+		 * 
+		 * pw.println("<html>"); pw.println("	<head>");
+		 * pw.println("		<title>SumCalculation<title>"); pw.println("	</head>");
+		 * pw.println("	<body>");
+		 * pw.println("		<form action='<%=request.getContextPath()%>/sumCalculation' method='post'>"
+		 * ); pw.println("			<input type='text' name='satrt'>");
+		 * pw.println("			<input type='text' name='end'>");
+		 * pw.println("			<input type='submit' value='전송'>");
+		 * pw.println("		</form>"); pw.println("	</body>"); pw.println("</html>");
+		 * 
+		 * pw.flush(); pw.close();
+		 */
 		
-		PrintWriter pw = resp.getWriter();
+		req.getRequestDispatcher(req.getContextPath()+"/jsp/sumCalculation.jsp").forward(req, resp);
 		
-		pw.println("<html>");
-		pw.println("	<head>");
-		pw.println("		<title>SumCalculation<title>");
-		pw.println("	</head>");
-		pw.println("	<body>");
-		pw.println("		<form action='<%=request.getContextPath()%>/sumCalculation' method='post'>");
-		pw.println("			<input type='text' name='satrt'>");
-		pw.println("			<input type='text' name='end'>");
-		pw.println("			<input type='submit' value='전송'>");
-		pw.println("		</form>");
-		pw.println("	</body>");
-		pw.println("</html>");
-		
-		pw.flush();
-		pw.close();
 		
 	}
 	

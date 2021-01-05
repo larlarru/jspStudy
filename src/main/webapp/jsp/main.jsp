@@ -11,19 +11,22 @@
 
 <title>Jsp</title>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet">
-<script src="<%=request.getContextPath()%>/js/bootstrap.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+<%-- <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet"> --%>
+
+<%@ include file="/common/common_lib.jsp" %>
+
+<%-- <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script> --%>
+
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">
 <link href="/css/blog.css" rel="stylesheet">
 </head>
 
 <body>
-
-
-	<nav class="navbar navbar-inverse navbar-fixed-top">
+	<%@ include file="/common/header.jsp" %>
+	
+	<!-- <nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
@@ -47,15 +50,16 @@
 				</form>
 			</div>
 		</div>
-	</nav>
+	</nav> -->
 	<div class="container-fluid">
 		<div class="row">
 
 			<div class="col-sm-3 col-md-2 sidebar">
-				<ul class="nav nav-sidebar">
+			<%@ include file="/common/left.jsp" %>
+				<!-- <ul class="nav nav-sidebar">
 					<li class="active"><a href="#">Main <span class="sr-only">(current)</span></a></li>
 					<li class="active"><a href="#">사용자</a></li>
-				</ul>
+				</ul> -->
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 

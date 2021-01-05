@@ -20,26 +20,26 @@ public class MulCalculation extends HttpServlet{
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		/*
+		 * resp.setContentType("text/html;charset=utf-8");
+		 * 
+		 * PrintWriter pw = resp.getWriter();
+		 * 
+		 * pw.println("<html>"); pw.println("	<head>");
+		 * pw.println("		<title>mulCalculation<title>"); pw.println("	</head>");
+		 * pw.println("	<body>");
+		 * pw.println("		<form action='<%=request.getContextPath()%>/mulCalculation' method='post'>"
+		 * ); pw.println("		<form action='' method='post'>");
+		 * pw.println("			<input type='text' name='satrt'>");
+		 * pw.println("			<input type='text' name='end'>");
+		 * pw.println("			<input type='submit' value='전송'>");
+		 * pw.println("		</form>"); pw.println("	</body>"); pw.println("</html>");
+		 * 
+		 * pw.flush(); pw.close();
+		 */
 		
-		resp.setContentType("text/html;charset=utf-8");
+		req.getRequestDispatcher(req.getContextPath()+"/jsp/mulCalculation.jsp").forward(req, resp);
 		
-		PrintWriter pw = resp.getWriter();
-		
-		pw.println("<html>");
-		pw.println("	<head>");
-		pw.println("		<title>SumCalculation<title>");
-		pw.println("	</head>");
-		pw.println("	<body>");
-		pw.println("		<form action='<%=request.getContextPath()%>/mulCalculation' method='post'>");
-		pw.println("			<input type='text' name='satrt'>");
-		pw.println("			<input type='text' name='end'>");
-		pw.println("			<input type='submit' value='전송'>");
-		pw.println("		</form>");
-		pw.println("	</body>");
-		pw.println("</html>");
-		
-		pw.flush();
-		pw.close();
 		
 	}
 	
@@ -48,7 +48,7 @@ public class MulCalculation extends HttpServlet{
 		
 		int start = Integer.parseInt(req.getParameter("start"));
 		int end = Integer.parseInt(req.getParameter("end"));
-		
+	
 		if(start > end) {
 			req.getRequestDispatcher(req.getContextPath()+"/jsp/mulCalculation.jsp").forward(req, resp);
 		}
