@@ -44,6 +44,16 @@
 		==> error-page 엘레멘트 기술 순서가 영향을 미치지 않음
 			예외 타입 에러페이지 설정이 에러코드 에러페이지 설정보다 우선
 
+cookie 확인
+	1. 개발자 도구
+	2. script
+		document.cokie
+
+cookie 구성
+쿠키이름=쿠키값; 쿠키이름2=쿠키값; 쿠키이름3=쿠키값3;
+
+특정 쿠키의 값을 확인하려면??
+userid=brown; remeberme=Y; test=t
 
 
 
