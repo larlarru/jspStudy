@@ -25,7 +25,27 @@
 <link href="/css/blog.css" rel="stylesheet">
 </head>
 
+<script>
+	// 문서 로딩이 완료되고 나서 실행되는 영역
+	$(function() {
+		
+		$(".user").on("click", function() {
+			
+			// this : 클릭 이벤트가 발생한 element
+			// data-속성명 data-userid, 속성명은 대소문자 무시하고 소문자로 인식
+			// data-userId ==> data-userid
+			var userid = $(this).data("userid");
+			console.log("userid" + userid);
+			$("#userid").val(userid);
+		})
+	})
+</script>
+
 <body>
+	<form id="frm" action="<%= request.getContextPath()%>/user">
+		<input type="hidden" id="userid" name="userid" value="">
+	</form>
+	
 	<%@ include file="/common/header.jsp" %>
 
 	
@@ -80,7 +100,7 @@
 								for(int i =0; i < userList.size(); i++ ) {
 										 UserVo uservo = userList.get(i);
 									 %>
-								<tr>
+								<tr class="user" data-userid="<%= uservo.getUserid()%>">
 									<td><%= uservo.getUserid() %></td>
 									<td><%= uservo.getUsernm() %></td>
 									<td><%= uservo.getAlias() %></td>

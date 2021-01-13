@@ -46,6 +46,7 @@ public class pagingUser extends HttpServlet{
 		UserServiceI userService = new UserService();
 		
 		String pageParam = req.getParameter("page");
+		logger.debug("pageParam : "+pageParam);
 		String pageSizeParam = req.getParameter("pageSize");
 		
 		int page = pageParam == null ? 1 : Integer.parseInt(pageParam);
@@ -59,6 +60,7 @@ public class pagingUser extends HttpServlet{
 		int userCnt = (int)map.get("userCnt");
 		int pagination = (int)Math.ceil((double) userCnt / pageSize); 
 		
+		req.setAttribute("pageVo", pageVo);
 		req.setAttribute("userList", userList);
 		req.setAttribute("pagination", pagination);
 		
