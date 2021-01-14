@@ -79,8 +79,8 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userId" name="userId"
-								placeholder="사용자 아이디" value="<%= uservo.getUserid() %>">
+							<input type="text" class="form-control" id="userid" name="userid"
+								placeholder="사용자 아이디" value="<%= uservo.getUserid() %>" readonly/>
 						</div>
 					</div>
 
@@ -94,22 +94,22 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userNm" name="userNm"
-								placeholder="사용자 이름" value="<%= uservo.getUsernm() %>">
+							<input type="text" class="form-control" id="usernm" name="usernm"
+								placeholder="사용자 이름" value="<%= uservo.getUsernm() %>" readonly/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="userAlias"
-								name="userAlias" placeholder="별명" value="<%= uservo.getAlias() %>">
+							<input type="text" class="form-control" id="alias"
+								name="alias" placeholder="별명" value="<%= uservo.getAlias() %>" readonly/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%= uservo.getPass() %>">
+								placeholder="Password" value="<%= uservo.getPass() %>" readonly/>
 						</div>
 					</div>
 

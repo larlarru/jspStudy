@@ -41,7 +41,24 @@
 	    FROM users
   	</select>
   	
+  	<!-- 사용자 정보 수정 -->
+  	<update id="modifyUser" parameterType="userVo">
+		update users set usernm = #{usernm},
+		                pass = #{pass},
+		                reg_dt = #{reg_dt},
+		                alias = #{alias},
+		                addr1 = #{addr1},
+		                addr2 = #{addr2},
+		                zipcode = #{zipcode}
+		where userid = #{userid}
+  	</update>
   	
+  	<insert id="insertUser" parameterType="userVo">
+  		Insert into users 
+   	 		values(#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1},#{addr2},#{zipcode}, null, null)
+<!--   		Insert into users 
+   	 		values(#{userid},#{usernm},#{pass},#{reg_dt},#{alias},#{addr1},#{addr2},#{zipcode}, null, null) -->
+  	</insert>
   
   
   

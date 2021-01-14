@@ -7,6 +7,7 @@
 	<%-- <li class="active"><a href="<%= request.getContextPath()%>/pagingUser?page=1&pageSize=5">사용자 페이징 리스트</a></li> --%>
 	<li class="active"><a href="<%= request.getContextPath()%>/pagingUser">사용자 페이징 리스트</a></li>
 	<li class="active"><a href="<%= request.getContextPath()%>/allEmpList">전체직원</a></li>
+	<li class="active"><a href="<%= request.getContextPath()%>/registUser">사용자 신규등록</a></li>
 	
 	<%-- <%@ include file="/user/allUser.jsp" %> --%>
 	

@@ -45,4 +45,14 @@ public class UserService implements UserServiceI{
 		return map;
 	}
 
+	@Override
+	public int modifyUser(UserVo userVo) {
+		return userDao.modifyUser(userVo);
+	}
+
+	@Override
+	public int insertUser(UserVo userVo) {
+		return userDao.insertUser(userVo);
+	}
+
 }

@@ -2,6 +2,7 @@ package kr.or.ddit.user.repository;
 
 import static org.junit.Assert.*;
 
+import java.util.Date;
 import java.util.List;
 
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class UserDaoTest {
 		List<UserVo> userList = userDao.selectAllUser();
 
 		/*** Then ***/
-		assertEquals(16, userList.size());
+		assertEquals(19, userList.size());
 	}
 
 	// 사용자 아이디를 이용하여 특정 사용자 정보 조회
@@ -59,5 +60,54 @@ public class UserDaoTest {
 		assertEquals(pagevo.getPageSize(), userList.size());
 
 	}
+	
+	@Test
+	public void modifyUserTest() {
+		/***Given***/
+		
+		UserDaoI userDao = new UserDao();
+		
+		// userid, usernm, pass, reg_dt, alias, addr1, adr2, zipcode
+		UserVo userVo = new UserVo("ddit", "대덕인재", "dditpass", new Date(), 
+									"개발원_m", "대전시 중구 중앙로 76", "4층 대덕인재개발원", "64940");
+
+		/***When***/
+		int updateCnt = userDao.modifyUser(userVo);
+
+		/***Then***/
+		assertEquals(1, updateCnt);
+	}
+
+	@Test
+	public void insertUserTest() {
+		/***Given***/
+		
+		UserDaoI userDao = new UserDao();
+		
+		// userid, usernm, pass, reg_dt, alias, addr1, adr2, zipcode
+		UserVo userVo = new UserVo("a2", "a2", "1234", new Date(), 
+									"개발원_m", "대전시 중구 중앙로 76", "4층 대덕인재개발원", "64940");
+
+		/***When***/
+		int updateCnt = userDao.insertUser(userVo);
+
+		/***Then***/
+		assertEquals(1, updateCnt);
+	}
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
