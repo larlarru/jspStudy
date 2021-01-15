@@ -95,10 +95,46 @@ public class UserDao implements UserDaoI{
 			
 			sqlSession.close();
 		} catch (Exception e) {
-			// TODO: handle exception
+			e.printStackTrace();
 		}
 		
 		return insertCnt;
+	}
+
+	@Override
+	public int deleteUser(String userid) {
+		
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		int deleteCnt = sqlSession.delete("users.deleteUser",userid);
+		logger.debug("deleteCnt : "+deleteCnt);
+			
+		if (deleteCnt==1) sqlSession.commit();
+		else sqlSession.rollback();
+		
+		sqlSession.close();
+		
+		return deleteCnt;
+	}
+
+	@Override
+	public int registUser(UserVo userVo) {
+		
+
+		SqlSession sqlSession = MybatisUtil.getSqlSession();
+		
+		int insertCnt = sqlSession.insert("users.registUser", userVo);
+		
+		if(insertCnt == 1) {
+			sqlSession.commit();
+		}
+		else {
+			sqlSession.rollback();
+		}
+		sqlSession.close();
+		
+		return insertCnt;
+		
 	}
 
 

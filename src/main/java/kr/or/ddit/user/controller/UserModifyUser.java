@@ -48,11 +48,15 @@ public class UserModifyUser extends HttpServlet{
 		String usernm = req.getParameter("usernm");
 		String pass = req.getParameter("pass");
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+//		SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.s");
 		Date reg_dt = null;
+		
+		logger.debug("req.getParameter의 reg_dt : " + req.getParameter("reg_dt"));
 		
 		try {
 			reg_dt = sdf.parse(req.getParameter("reg_dt"));
+			logger.debug("reg_dt : " + reg_dt);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -66,7 +70,7 @@ public class UserModifyUser extends HttpServlet{
 		UserVo uservo = new UserVo(userid, usernm, pass, reg_dt, alias, addr1, addr2, zipcode);
 		
 		int updateCnt = userService.modifyUser(uservo);
-		
+		logger.debug("updateCnt : " + updateCnt);
 		// 사용자 수정이 정상적으로 된 경우 ==> 해당 사용자의 상세조회 페이지로 이동
 		if(updateCnt == 1) {
 			resp.sendRedirect(req.getContextPath()+"/user?userid="+userid);

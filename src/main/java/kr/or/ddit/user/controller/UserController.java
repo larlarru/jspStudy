@@ -41,6 +41,7 @@ public class UserController extends HttpServlet{
 		UserVo user = userService.selectUser(userid);
 		
 		req.setAttribute("user", user);
+		logger.debug("userVo의 userid 값 : "+user.getUserid());
 		
 		req.getRequestDispatcher("/user/user.jsp").forward(req, resp);
 		

@@ -36,7 +36,8 @@
 			// data-속성명 data-userid, 속성명은 대소문자 무시하고 소문자로 인식
 			// data-userId ==> data-userid
 			var userid = $(this).data("userid");
-			console.log("userid" + userid);
+			console.log("userid : " + userid);
+			alert($(this).data("userid"));
 			$("#userid").val(userid);
 			$("#frm").submit();
 		})

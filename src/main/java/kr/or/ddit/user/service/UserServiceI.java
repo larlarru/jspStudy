@@ -20,4 +20,11 @@ public interface UserServiceI {
 	
 	int insertUser(UserVo userVo);
 	
+	// 사용자 삭제
+	int deleteUser(String userid);
+	
+	int registUser(UserVo userVo);
+	
+	int selectAllUserCnt();
+	
 }

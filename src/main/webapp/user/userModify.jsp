@@ -115,10 +115,8 @@
 					<div class="form-group">
 						<label for="reg_dt" class="col-sm-2 control-label">등록일시</label>
 						<div class="col-sm-10">
-							<% String reg_dt = request.getParameter("reg_dt");
-								reg_dt = reg_dt == null ? "" : reg_dt;%>
 							<input type="text" class="form-control" id="reg_dt" name="reg_dt"
-								placeholder="" value="<%= reg_dt %>" readonly/>
+								placeholder="" value="<%= user.getReg_dt_fmt() %>" readonly/>
 						</div>
 					</div>
 					
@@ -141,7 +139,7 @@
 							<% String addr2 = request.getParameter("addr2");
 								addr2 = addr2 == null ? "" : addr2;%>
 							<input type="text" class="form-control" id="addr2" name="addr2"
-								placeholder="상세주소" value="<%=user.getAddr2() %>"/>
+								placeholder="상세주소" value="<%= user.getAddr2() %>"/>
 						</div>
 					</div>
 
