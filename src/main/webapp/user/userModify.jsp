@@ -19,9 +19,9 @@
 <%@ include file="/common/common_lib.jsp"%>
 
 <!-- Custom styles for this template -->
-<link href="<%=request.getContextPath()%>/css/dashboard.css"
+<link href="${pageContext.request.contextPath}/css/dashboard.css"
 	rel="stylesheet">
-<link href="<%=request.getContextPath()%>/css/blog.css" rel="stylesheet">
+<link href="${pageContext.request.contextPath}/css/blog.css" rel="stylesheet">
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -65,15 +65,15 @@
 				<% UserVo user = (UserVo)request.getAttribute("user"); %>
 				
 				<form class="form-horizontal" role="form" 
-						action="<%=request.getContextPath()%>/userModify" method="post">
+						action="${pageContext.request.contextPath}/userModify" method="post">
 					<input type="hidden" name="userid" value="<%=user.getUserid() %>"/>
 					
 					<div class="form-group">
-						<label class="col-sm-2 control-label">사용자 아이디</label>
+						<label class="col-sm-2 control-label">사용자 아이디(다시 바꿈)</label>
 						<div class="col-sm-10">
 							<% String userid = request.getParameter("userid");
 								userid = userid == null ? "" : userid;%>
-							<label class="control-label"><%=userid %></label>
+							<label class="control-label">${param.userid}</label>
 							<%-- <label class="control-label"><%=user.getUserid() %></label> --%>
 						</div>
 					</div>
@@ -84,7 +84,7 @@
 						<% String usernm = request.getParameter("usernm");
 								usernm = usernm == null ? "" : usernm;%>
 							<input type="text" class="form-control" id="usernm" name="usernm"
-								placeholder="사용자 이름" value="<%=usernm %>"/>
+								placeholder="사용자 이름" value="${param.usernm}"/>
 						</div>
 					</div>
 					
@@ -97,7 +97,7 @@
 						<% String alias = request.getParameter("alias");
 								alias = alias == null ? "" : alias;%>
 							<input type="text" class="form-control" id="alias" name="alias"
-								placeholder="별명" value="<%=alias %>"/>
+								placeholder="별명" value="${param.alias}"/>
 						</div>
 					</div>
 		
@@ -108,7 +108,7 @@
 						<% String pass = request.getParameter("pass");
 								pass = pass == null ? "" : pass;%>
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="비밀번호" value="<%=pass %>"/>
+								placeholder="비밀번호" value="${param.pass}"/>
 						</div>
 					</div>
 					
@@ -126,7 +126,7 @@
 							<% String addr1 = request.getParameter("addr1");
 								addr1 = addr1 == null ? "" : addr1;%>
 							<input type="text" class="form-control" id="addr1" name="addr1"
-								placeholder="도로주소" value="<%= addr1 %>" readonly/>
+								placeholder="도로주소" value="<%= user.getAddr1() %>" readonly/>
 						</div>
 						<div class="col-sm-2">
 							<button type="button" id="addrBtn" class="btn btn-default">주소검색</button>

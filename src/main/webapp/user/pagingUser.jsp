@@ -3,6 +3,7 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,11 +16,11 @@
 <title>Jsp</title>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<%-- <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"> --%>
 
 <%@ include file="/common/common_lib.jsp" %>
 
-<%-- <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script> --%>
+<%-- <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script> --%>
 
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">
@@ -37,15 +38,20 @@
 			// data-userId ==> data-userid
 			var userid = $(this).data("userid");
 			console.log("userid : " + userid);
-			alert($(this).data("userid"));
+			/* alert($(this).data("userid")); */
 			$("#userid").val(userid);
 			$("#frm").submit();
+			
+		})
+		
+		$("#userRegist").on("click", function() {
+			location.href="${pageContext.request.contextPath}/registUser";
 		})
 	})
 </script>
 
 <body>
-	<form id="frm" action="<%= request.getContextPath()%>/user">
+	<form id="frm" action="${pageContext.request.contextPath}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	
@@ -98,22 +104,18 @@
 									<th>사용자 별명</th>
 									<th>등록일시</th>
 								</tr>
-								<%
-								List<UserVo> userList = (List<UserVo>) request.getAttribute("userList");
-								for(int i =0; i < userList.size(); i++ ) {
-										 UserVo uservo = userList.get(i);
-									 %>
-								<tr class="user" data-userid="<%= uservo.getUserid()%>">
-									<td><%= uservo.getUserid() %></td>
-									<td><%= uservo.getUsernm() %></td>
-									<td><%= uservo.getAlias() %></td>
-									<td><%= uservo.getReg_dt_fmt() %></td>
-								</tr>
-								 <% } %>
+								 <c:forEach items="${userList }" var="user">
+									<tr class="user" data-userid="${user.userid }">
+										<td>${user.userid }</td>
+										<td>${user.usernm }</td>
+										<td>${user.alias }</td>
+										<td>${user.getReg_dt_fmt() }</td>
+									</tr>
+								</c:forEach>
 							</table>
 						</div>
 				
-						<a class="btn btn-default pull-right">사용자 등록</a>
+						<a id="userRegist" class="btn btn-default pull-right">사용자 등록</a>
 				
 						<div class="text-center">
 							<% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
@@ -126,19 +128,22 @@
 								     전체 페이지 수 : 4페이지
 								 --%> 
 								 <li class="prev">
-									<a href="<%=request.getContextPath() %>/pagingUser?page=1&pageSize=<%=pageVo.getPageSize()%>">«</a>
+									<a href="${pageContext.request.contextPath }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
-								<%for(int i = 1; i <= pagination; i++){
-									
-									if(pageVo.getPage() == i){%>
-										<li class="active"><span><%=i %></span></li>
-									<%}
-									else {%>
-										<li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a></li>
-									<%} %>
-								<%} %>
+								
+								<c:forEach begin="1" end="${pagination }" var="i"> 
+									<c:choose>
+										<c:when test="${pageVo.page == i }">
+											<li class="active"><span>${i }</span></li>
+										</c:when>
+										<c:otherwise>
+											<li><a href="${pageContext.request.contextPath }/pagingUser?page=${i }&pageSize=${pageVo.pageSize}">${i }</a></li>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+								
 								<li class="next">
-									<a href="<%=request.getContextPath() %>/pagingUser?page=<%=pagination %>&pageSize=<%=pageVo.getPageSize()%>">»</a>
+									<a href="${pageContext.request.contextPath }/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize}">»</a>
 								</li>
 							</ul>
 						</div>

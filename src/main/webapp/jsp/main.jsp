@@ -12,11 +12,11 @@
 <title>Jsp</title>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<%-- <link href="<%=request.getContextPath()%>/css/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"> --%>
 
 <%@ include file="/common/common_lib.jsp" %>
 
-<%-- <script src="<%=request.getContextPath()%>/js/bootstrap.js"></script> --%>
+<%-- <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script> --%>
 
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">

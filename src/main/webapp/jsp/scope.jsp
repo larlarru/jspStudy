@@ -10,7 +10,7 @@
 
 	응답
 	
-	<form action="<%=request.getContextPath()%>/scope" method="post">
+	<form action="${pageContext.request.contextPath}/scope" method="post">
 		<!-- <input type="text" name="request"><br>
 		<input type="text" name="session"><br>
 		<input type="text" name="application"><br> -->

@@ -31,13 +31,13 @@
 		
 		$("#modifyBtn").on("click", function() {
 			$("#frm").attr("method", "get");
-			$("#frm").attr("action", "<%= request.getContextPath()%>/userModify");
+			$("#frm").attr("action", "${pageContext.request.contextPath}/userModify");
 			$("#frm").submit();
 		})
 		
 		$("#deleteBtn").on("click", function() {
 			$("#frm").attr("method", "post");
-			$("#frm").attr("action", "<%= request.getContextPath()%>/deleteUser");
+			$("#frm").attr("action", "${pageContext.request.contextPath}/deleteUser");
 			$("#frm").submit();
 		})
 		
@@ -83,7 +83,7 @@
 			
 			<% UserVo user = (UserVo) request.getAttribute("user"); %>
 
-				<form class="form-horizontal" id="frm" role="form" action="<%= request.getContextPath()%>/userModify">
+				<form class="form-horizontal" id="frm" role="form" action="${pageContext.request.contextPath}/userModify">
 					
 					<input type="hidden" id="userid" name="userid" value="<%= uservo.getUserid() %>">
 				
