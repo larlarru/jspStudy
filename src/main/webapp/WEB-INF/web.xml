@@ -38,7 +38,8 @@
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/LoginController</url-pattern>
   </servlet-mapping>
-  
+ 
+<!--   
   <filter>
   	<filter-name>requestCountFilter</filter-name>
   	<filter-class>kr.or.ddit.filter.RequestCounterFilter</filter-class>
@@ -65,6 +66,7 @@
   	<filter-name>sessionCheckFilter</filter-name>
   	<url-pattern>/*</url-pattern>
   </filter-mapping>
+  -->
   
   <!-- error page 설정 -->
   <error-page>
