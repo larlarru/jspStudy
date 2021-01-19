@@ -110,7 +110,8 @@ public class LoginController extends HttpServlet{
 		// 로그인 성공 ==> service를 통해 데이터베이스에 저장된 값과 일치할 때
 		// session에 데이터베이스에서 조회한 사용자 정보(userVo)를 저장
 		if(user != null && pass.equals(user.getPass())) {
-			session.setAttribute("userid", userid);
+			session.setAttribute("S_USER", user);
+			//session.setAttribute("userid", userid);
 			//req.getRequestDispatcher("jsp/main.jsp").forward(req, resp);
 			req.getRequestDispatcher(req.getContextPath()+"jsp/main.jsp").forward(req, resp);
 			logger.debug("로그인 성공");

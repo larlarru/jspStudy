@@ -42,7 +42,7 @@ public class UserModifyUser extends HttpServlet{
 		
 		// 파라미터를 읽기 전에 실행
 		// servlet doPost 메소드 마다 실행 필요 ==> Filter
-		req.setCharacterEncoding("utf-8");
+		//req.setCharacterEncoding("utf-8");
 		
 		String userid = req.getParameter("userid");
 		String usernm = req.getParameter("usernm");
