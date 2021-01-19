@@ -1,3 +1,4 @@
+<%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,6 +12,7 @@
     <meta name="author" content="">
    
     <title>Signin Template for Bootstrap</title>
+    
 
     <!-- Bootstrap core CSS -->
     <%-- <link href="<%=request.getContextPath() %>/css/bootstrap.min.css" rel="stylesheet"> --%>
@@ -115,7 +117,9 @@
   <body>
 
     <div class="container">
-
+	
+		UNT_CD : ${param.UNT_CD } / <%= request.getParameter("UNT_CD") %>
+	
       <form class="form-signin" id="frm" 
       		action="${pageContext.request.contextPath}/loginController" method="post">
         <h2 class="form-signin-heading">Please sign in</h2>
