@@ -16,11 +16,11 @@
 <title>Jsp</title>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<%-- <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <link href="${cp}/css/bootstrap.min.css" rel="stylesheet"> --%>
 
 <%@ include file="/common/common_lib.jsp" %>
 
-<%-- <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script> --%>
+<%-- <script src="${cp}/js/bootstrap.js"></script> --%>
 
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">
@@ -45,13 +45,13 @@
 		})
 		
 		$("#userRegist").on("click", function() {
-			location.href="${pageContext.request.contextPath}/registUser";
+			location.href="${cp}/registUser";
 		})
 	})
 </script>
 
 <body>
-	<form id="frm" action="${pageContext.request.contextPath}/user">
+	<form id="frm" action="${cp}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	
@@ -128,7 +128,7 @@
 								     전체 페이지 수 : 4페이지
 								 --%> 
 								 <li class="prev">
-									<a href="${pageContext.request.contextPath }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
+									<a href="${cp }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
 								<c:set var = "cnt" value="${pagination}"/>
 								<c:forEach begin="1" end="${pageVo.pageSize-1}" var="i">
@@ -136,13 +136,13 @@
 										<li class="active"><span>${i}</span></li>
 									</c:if>
 									<c:if test="${pageVo.page != i}"> 
-										<li><a href="${pageContext.request.contextPath}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
+										<li><a href="${cp}/pagingUser?page=${i}&pageSize=${pageVo.pageSize}">${i}</a></li>
 										<%-- <li><a href="<%=request.getContextPath() %>/pagingUser?page=<%=i %>&pageSize=<%=pageVo.getPageSize()%>"><%=i %></a></li> --%>
 									</c:if>
 								</c:forEach>
 								
 								<li class="next">
-									<a href="${pageContext.request.contextPath}/pagingUser?page=${cnt}&pageSize=${pageVo.pageSize}">»</a>
+									<a href="${cp}/pagingUser?page=${cnt}&pageSize=${pageVo.pageSize}">»</a>
 								</li>
 							</ul>
 						</div>

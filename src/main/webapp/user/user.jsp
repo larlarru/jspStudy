@@ -31,13 +31,13 @@
 		
 		$("#modifyBtn").on("click", function() {
 			$("#frm").attr("method", "get");
-			$("#frm").attr("action", "${pageContext.request.contextPath}/userModify");
+			$("#frm").attr("action", "${cp}/userModify");
 			$("#frm").submit();
 		})
 		
 		$("#deleteBtn").on("click", function() {
 			$("#frm").attr("method", "post");
-			$("#frm").attr("action", "${pageContext.request.contextPath}/deleteUser");
+			$("#frm").attr("action", "${cp}/deleteUser");
 			$("#frm").submit();
 		})
 		
@@ -81,17 +81,19 @@
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 			
-			<% UserVo user = (UserVo) request.getAttribute("user"); %>
 
-				<form class="form-horizontal" id="frm" role="form" action="${pageContext.request.contextPath}/userModify">
+				<form class="form-horizontal" id="frm" role="form" action="${cp}/userModify">
 					
-					<input type="hidden" id="userid" name="userid" value="<%= uservo.getUserid() %>">
+					<input type="hidden" id="userid" name="userid" value="${user.userid}">
 				
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-							<img src="<%= request.getContextPath() %>/profile/<%= uservo.getUserid() %>.png"><br>
-							<label class="control-label"><%= uservo.getUserid() %></label>
+						<a href="${cp }/profileDownload?userid=${user.userid}">
+							<img src="${cp}/profile?userid=${user.userid}"><br>
+<%-- 							<img src="${cp}/profile/${user.userid}.png"><br> --%>
+						</a>
+							<label class="control-label">${user.userid}</label>
 						</div>
 					</div>
 					
@@ -99,14 +101,14 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userid" name="userid"
-								placeholder="사용자 아이디" value="<%= uservo.getUserid() %>" readonly/>
+								placeholder="사용자 아이디" value="${user.userid}" readonly/>
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 아이디</label>
 						<div class="col-sm-10">
-							<label class="control-label"><%= uservo.getUserid() %></label>
+							<label class="control-label">${user.userid}</label>
 						</div>
 					</div>
 
@@ -114,21 +116,21 @@
 						<label for="userNm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="usernm" name="usernm"
-								placeholder="사용자 이름" value="<%= uservo.getUsernm() %>" readonly/>
+								placeholder="사용자 이름" value="${user.usernm}" readonly/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">별명</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="alias"
-								name="alias" placeholder="별명" value="<%= uservo.getAlias() %>" readonly/>
+								name="alias" placeholder="별명" value="${user.alias}" readonly/>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="pass" class="col-sm-2 control-label">Password</label>
 						<div class="col-sm-10">
 							<input type="password" class="form-control" id="pass" name="pass"
-								placeholder="Password" value="<%= uservo.getPass() %>" readonly/>
+								placeholder="Password" value="${user.pass}" readonly/>
 						</div>
 					</div>
 

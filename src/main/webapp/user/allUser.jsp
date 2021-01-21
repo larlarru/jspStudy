@@ -16,11 +16,11 @@
 <title>Jsp</title>
 
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
-<%-- <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet"> --%>
+<%-- <link href="${cp}/css/bootstrap.min.css" rel="stylesheet"> --%>
 
 <%@ include file="/common/common_lib.jsp" %>
 
-<%-- <script src="${pageContext.request.contextPath}/js/bootstrap.js"></script> --%>
+<%-- <script src="${cp}/js/bootstrap.js"></script> --%>
 
 <!-- Custom styles for this template -->
 <link href="/css/dashboard.css" rel="stylesheet">
@@ -44,7 +44,7 @@
 </script>
 
 <body>
-	<form id="frm" action="${pageContext.request.contextPath}/user">
+	<form id="frm" action="${cp}/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	

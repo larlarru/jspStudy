@@ -48,20 +48,22 @@
 		                alias = #{alias},
 		                addr1 = #{addr1},
 		                addr2 = #{addr2},
-		                zipcode = #{zipcode}
+		                zipcode = #{zipcode},
+		                filename = #{filename}, 
+		                realfilename = #{realfilename}
 		where userid = #{userid}
   	</update>
   	
   	<insert id="insertUser" parameterType="userVo">
   		Insert into users 
-   	 		values(#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1},#{addr2},#{zipcode}, null, null)
+   	 		values(#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1},#{addr2},#{zipcode}, #{filename}, #{realfilename})
 <!--   		Insert into users 
    	 		values(#{userid},#{usernm},#{pass},#{reg_dt},#{alias},#{addr1},#{addr2},#{zipcode}, null, null) -->
   	</insert>
   	
   	<insert id="registUser" parameterType="userVo">
   		Insert into users 
-   	 		values(#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1},#{addr2},#{zipcode}, null, null)
+   	 		values(#{userid},#{usernm},#{pass},sysdate,#{alias},#{addr1},#{addr2},#{zipcode}, #{filename}, #{realfilename})
 <!--   		Insert into users 
    	 		values(#{userid},#{usernm},#{pass},#{reg_dt},#{alias},#{addr1},#{addr2},#{zipcode}, null, null) -->
   	</insert>

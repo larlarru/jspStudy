@@ -7,13 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action='${cp}/mulCalculation' method='post'>
-		<input type="text" name="start">
-		<input type="text" name="end">
-		<input type="submit" value="전송">
-	</form>
 	
-	<%= session.getAttribute("mulResult") %>
+	user set : ${USER_SET }
 	
 </body>
 </html>
