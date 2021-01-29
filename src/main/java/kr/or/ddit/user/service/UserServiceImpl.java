@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.repository.UserDao;
 
-@Service
+@Service("userService")
+//@Service("userService")
 public class UserServiceImpl implements UserService {
 	
 	@Resource(name="userDao")
 	private UserDao userDao;
+	
+//	@Resource(name="userDao")
+//	private UserDao userDao;
 	
 	public UserServiceImpl() {}
 	

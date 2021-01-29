@@ -11,6 +11,7 @@
 		<config>src/main/resources/kr/or/ddit/ioc/component-scan.xml</config>
 		<config>src/main/java/kr/or/ddit/ioc/typeConversion.xml</config>
 		<config>src/main/resources/kr/or/ddit/config/spring/application-context.xml</config>
+		<config>src/main/resources/kr/or/ddit/config/spring/root-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

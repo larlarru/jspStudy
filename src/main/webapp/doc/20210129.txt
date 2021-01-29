@@ -58,7 +58,20 @@ spring class/method url-mapping이 이루어짐
 servlet : userList, user, userRegist, userModify, userDelete : 5개의 서블릿을 생성
 spring : 한개로 통합 가능
 
+스프링 컨트롤러 테스트
+servlet 환경에서는 servlet 자체를 테스트하기가 굉장히 어려움
+	servlet 생성하는 주체가 setvlet-container
+		HttpServletRequest, HttpSession등 필요한 객체가 많음
 
+스프링 환경에서는 해당 객체를 쉽게 만들 수 있는 Mock 객체를 제공
+	MockHttpServletRequest, MockHttpServletResponse, MockHttpSesion
+
+	==> 손이 많이 간다.
+	
+	spring 프레임워크에서 처리될 요청은 Dispatcher Servlet이 받으므로
+	Dispatcher Servlet을 대신하여 테스트 할 수 있는 객체를 제공하는 형식으로 컨트롤러 테스트를 진행
+	
+	DispatcherServlet ==> MockMvc
 
 
 

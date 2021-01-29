@@ -59,7 +59,7 @@ public class IocJavaConfig {
 	 */
 	
 	@Bean
-	public UserServiceImpl UserService() {
+	public UserServiceImpl userService() {
 		
 		UserServiceImpl userService = new UserServiceImpl();
 //		userService.setUserDao(new UserDaoImpl());	// 스프링과 상관없이 방금 내가 만든 객체
@@ -75,7 +75,7 @@ public class IocJavaConfig {
  */
 	
 	@Bean
-	public UserServiceImpl UserServiceCons() {
+	public UserServiceImpl userServiceCons() {
 		
 		return new UserServiceImpl(userDao());
 	}
