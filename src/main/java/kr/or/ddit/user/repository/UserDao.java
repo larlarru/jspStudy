@@ -1,0 +1,10 @@
+package kr.or.ddit.user.repository;
+
+import kr.or.ddit.user.model.UserVo;
+
+public interface UserDao {
+	
+	// 사용자 아이디로 자용사 조회
+	UserVo getUser(String suerid);
+	
+}
