@@ -22,7 +22,7 @@ public class ComponentScanJavaTest {
 	@Resource(name="userDao")
 	private UserDao userDao;
 	
-	@Resource(name="userServiceImpl")
+	@Resource(name="userService")
 	private UserService userService;
 	
 	// @Repository 이노테이션을 적용한 userDaoImpl 스프링 빈이 정상적으로 컨테이너에 등록 되었는지 확인

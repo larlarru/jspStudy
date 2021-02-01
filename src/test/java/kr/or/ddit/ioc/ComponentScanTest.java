@@ -13,14 +13,17 @@ import kr.or.ddit.user.model.UserVo;
 import kr.or.ddit.user.repository.UserDao;
 import kr.or.ddit.user.service.UserService;
 
-@ContextConfiguration("classpath:/kr/or/ddit/ioc/component-scan.xml")
+//@ContextConfiguration("classpath:/kr/or/ddit/ioc/component-scan.xml")
+@ContextConfiguration(locations = 
+{"classpath:/kr/or/ddit/ioc/component-scan.xml",
+"classpath:kr/or/ddit/config/spring/datasource_context.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class ComponentScanTest {
 	
 	@Resource(name="userDao")
 	private UserDao userDao;
 	
-	@Resource(name="userServiceImpl")
+	@Resource(name="userService")
 	private UserService userService;
 	
 	// @Repository 이노테이션을 적용한 userDaoImpl 스프링 빈이 정상적으로 컨테이너에 등록 되었는지 확인

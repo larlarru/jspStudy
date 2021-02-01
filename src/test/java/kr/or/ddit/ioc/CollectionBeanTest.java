@@ -9,7 +9,9 @@ import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-@ContextConfiguration("classpath:/kr/or/ddit/ioc/ioc.xml")
+@ContextConfiguration(locations = 
+{"classpath:/kr/or/ddit/ioc/ioc.xml",
+"classpath:kr/or/ddit/config/spring/datasource_context.xml"})
 @RunWith(SpringJUnit4ClassRunner.class)
 public class CollectionBeanTest {
 	
@@ -23,7 +25,7 @@ public class CollectionBeanTest {
 		assertNotNull(collectionBean.getList());
 		assertEquals(3, collectionBean.getList().size());
 		assertEquals("sally", collectionBean.getList().get(1));
-		assertEquals("브라운", collectionBean.getMap().get("userid"));
+		assertEquals("brown", collectionBean.getMap().get("userid"));
 		
 	}
 

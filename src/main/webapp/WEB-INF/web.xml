@@ -12,7 +12,10 @@
   
   <context-param>
   	<param-name>contextConfigLocation</param-name>
-  	<param-value>classpath:/kr/or/ddit/config/spring/root-context.xml</param-value>
+  	<param-value>
+  		classpath:/kr/or/ddit/config/spring/root-context.xml
+  		classpath:/kr/or/ddit/config/spring/datasource_context.xml
+  	</param-value>
   </context-param>
   
   <listener>
@@ -35,5 +38,9 @@
 <!--   	<url-pattern>/*</url-pattern> -->
 <!--   	<url-pattern>*.do</url-pattern> -->
   </servlet-mapping>
+  
+  <listener>
+  	<listener-class>kr.or.ddit.listener.ApplicationListener</listener-class>
+  </listener>
   
 </web-app>
