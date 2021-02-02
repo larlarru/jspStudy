@@ -1,6 +1,8 @@
 package kr.or.ddit.user.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -44,10 +46,33 @@ public class UserServiceImpl implements UserService {
 		return userDao.selectAllUser();
 	}
 
+//	@Override
+//	public List<UserVo> selectPagingUser(PageVo pageVo) {
+//		return userDao.selectPagingUser(pageVo);
+//	}
+	
 	@Override
-	public List<UserVo> selectPagingUser(PageVo pageVo) {
-		return userDao.selectPagingUser(pageVo);
+	public Map<String, Object> selectPagingUser(PageVo pageVo) {
+		
+		Map<String, Object> resultMap = new HashMap<String, Object>();
+		
+		resultMap.put("pageVo", pageVo);
+		resultMap.put("userList", userDao.selectPagingUser(pageVo));
+
+//		resultMap.put("userCnt", userDao.selectAllUserCnt());
+		
+//		int userCnt = userDao.selectAllUserCnt();
+		
+		resultMap.put("pagination", 
+				(int)Math.ceil( (double)userDao.selectAllUserCnt() )/pageVo.getPageSize() );
+				
+//		resultMap.put("pagination", 
+//				(int)Math.ceil( ((Integer)resultMap.get("userCnt")).doubleValue()/pageVo.getPageSize()) );
+		
+		
+		return resultMap;
 	}
+	
 
 	@Override
 	public int modifyUser(UserVo userVo) {
@@ -62,6 +87,16 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public int registUser(UserVo userVo) {
 		return userDao.registUser(userVo);
+	}
+
+	@Override
+	public int selectAllUserCnt() {
+		return userDao.selectAllUserCnt();
+	}
+
+	@Override
+	public UserVo selectUser(String userid) {
+		return userDao.selectUser(userid);
 	}
 
 	

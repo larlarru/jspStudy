@@ -18,7 +18,7 @@
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
 <%-- <link href="${cp}/css/bootstrap.min.css" rel="stylesheet"> --%>
 
-<%@ include file="/common/common_lib.jsp" %>
+<%@ include file="/WEB-INF/views/common/common_lib.jsp" %>
 
 <%-- <script src="${cp}/js/bootstrap.js"></script> --%>
 
@@ -44,12 +44,11 @@
 </script>
 
 <body>
-	<form id="frm" action="${cp}/user">
+	<form id="frm" action="${cp}/user/user">
 		<input type="hidden" id="userid" name="userid" value="">
 	</form>
 	
-	<%@ include file="/common/header.jsp" %>
-
+	<%@ include file="/WEB-INF/views/common/header.jsp" %>
 	
 	<nav class="navbar navbar-inverse navbar-fixed-top">
 		<div class="container-fluid">
@@ -80,7 +79,7 @@
 					
 			<div class="col-sm-3 col-md-2 sidebar">
 				<ul class="nav nav-sidebar">
-					<%@ include file="/common/left.jsp" %>
+					<%@ include file="/WEB-INF/views/common/left.jsp" %>
 				</ul>
 			</div>
 			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">

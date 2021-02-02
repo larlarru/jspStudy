@@ -60,6 +60,16 @@ public class UserDaoImpl implements UserDao {
 	public int deleteUser(String userid) {
 		return template.delete("users.deleteUser", userid);
 	}
+
+	@Override
+	public int selectAllUserCnt() {
+		return template.selectOne("users.selectAllUserCnt");
+	}
+
+	@Override
+	public UserVo selectUser(String userid) {
+		return template.selectOne("users.selectUser", userid);
+	}
 	
 	
 //	@Override

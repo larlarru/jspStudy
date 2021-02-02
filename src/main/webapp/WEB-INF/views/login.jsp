@@ -1,6 +1,7 @@
 <%@page import="java.util.Map"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -24,10 +25,18 @@
     <!-- Custom styles for this template -->
     <link href="${cp }/css/signin.css" rel="stylesheet">
 	
+	
+	
+	
 	<script>
 		
 		 // html 문서 로딩이 완료 되고 나서 실행 되는 코드
 		 $(function() {
+			 
+				 
+			 <c:if test="${msg != null }">
+			 	alert("${msg}"+"ra");
+			 </c:if>
 			 
 			 // userid, rememberme 쿠키를 확인하여 존재할 경우 값설정, 체크
 			 if(Cookies.get('userid')!=null && Cookies.get('rememberme') != null) {
@@ -75,13 +84,11 @@
 
     <div class="container">
 		
-		cp: ${cp }/ <%= application.getAttribute("cp") %><br>
-		cp1 : <%= request.getContextPath() %>
 		
 		<%-- UNT_CD : ${param.UNT_CD } / <%= request.getParameter("UNT_CD") %> --%>
 	
       <form class="form-signin" id="frm" 
-      		action="<%= request.getContextPath() %>/login/process" method="post">
+      		action="${cp }/login/process" method="post">
       		
         <h2 class="form-signin-heading">Please sign in</h2>
         <label for="userid" class="sr-only">userid</label>

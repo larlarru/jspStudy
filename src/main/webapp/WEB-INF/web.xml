@@ -43,4 +43,22 @@
   	<listener-class>kr.or.ddit.listener.ApplicationListener</listener-class>
   </listener>
   
+  <!-- post parameter encoding -->
+  <filter>
+  	<filter-name>characterEncodingFilter</filter-name>
+  	<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+  	
+  	<init-param>
+  		<param-name>encoding</param-name>
+  		<param-value>utf-8</param-value>
+  	</init-param>
+  	
+  </filter>
+  <filter-mapping>
+  	<filter-name>characterEncodingFilter</filter-name>
+  	<url-pattern>/*</url-pattern>
+  </filter-mapping>
+  
+  
+  
 </web-app>

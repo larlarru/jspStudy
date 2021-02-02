@@ -129,5 +129,19 @@ public class UserDaoTest extends ModelTestConfig {
 		/***Then***/
 		assertEquals(1, deleteCnt);
 	}
+	
+	@Test
+	public void selectUserTest() {
+		
+		/***Given***/
+		String userid = "brown";
 
+		/***When***/
+		UserVo userVo = userDao.selectUser(userid);
+
+		/***Then***/
+		assertEquals("브라운", userVo.getUsernm());
+		
+	}
+	
 }

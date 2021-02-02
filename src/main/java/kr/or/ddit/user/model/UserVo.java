@@ -23,31 +23,31 @@ public class UserVo {
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date reg_dt;
 	
-	@DateTimeFormat(pattern = "MM-dd-yyyy")
-	private Date hire_dt;
+//	@DateTimeFormat(pattern = "MM-dd-yyyy")
+//	private Date hire_dt;
 	
 	// 1,000 ==> 1,000, 1,000 ==> 1000
 	// 1,000
-	@NumberFormat(pattern = "#,###")
-	private int price;
+//	@NumberFormat(pattern = "#,###")
+//	private int price;
 	
 	
 
-	public int getPrice() {
-		return price;
-	}
-
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public Date getHire_dt() {
-		return hire_dt;
-	}
-
-	public void setHire_dt(Date hire_dt) {
-		this.hire_dt = hire_dt;
-	}
+//	public int getPrice() {
+//		return price;
+//	}
+//
+//	public void setPrice(int price) {
+//		this.price = price;
+//	}
+//
+//	public Date getHire_dt() {
+//		return hire_dt;
+//	}
+//
+//	public void setHire_dt(Date hire_dt) {
+//		this.hire_dt = hire_dt;
+//	}
 
 	public Date getReg_dt() {
 		return reg_dt;
@@ -137,7 +137,7 @@ public class UserVo {
 	public String toString() {
 		return "UserVo [userid=" + userid + ", usernm=" + usernm + ", pass=" + pass + ", alias=" + alias + ", addr1="
 				+ addr1 + ", addr2=" + addr2 + ", zipcode=" + zipcode + ", filename=" + filename + ", realfilename="
-				+ realfilename + ", reg_dt=" + reg_dt + ", hire_dt=" + hire_dt + ", price=" + price + "]";
+				+ realfilename + ", reg_dt=" + reg_dt + "]";
 	}
 
 	

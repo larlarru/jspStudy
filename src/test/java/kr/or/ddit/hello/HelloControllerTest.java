@@ -3,11 +3,13 @@ package kr.or.ddit.hello;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 
 
 import org.junit.Test;
+import org.springframework.test.web.servlet.MvcResult;
 
 import kr.or.ddit.test.config.WebTestConfig;
 
@@ -45,6 +47,18 @@ public class HelloControllerTest extends WebTestConfig {
 		
 	}
 	
+	
+	@Test
+	public void pathVariableTest() throws Exception {
+		
+		MvcResult mvcResult = mockMvc.perform(get("/hello/path/brown"))
+				.andExpect(status().isOk()) // hello/view로 요청을 보냈을때 정상적인(?)응답(상태)을 기대한다 라는 의미이다.
+				.andExpect(model().attributeExists("subpath"))
+				.andDo(print())
+				.andReturn();
+	}
+	
+	
 //	@Test
 //	public void processSuccessTest() throws Exception {
 //		
@@ -69,6 +83,7 @@ public class HelloControllerTest extends WebTestConfig {
 //		
 //	}
 //	
+	
 	
 	
 

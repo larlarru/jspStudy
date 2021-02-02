@@ -20,4 +20,8 @@ public interface UserDao {
 
 	int deleteUser(String userid);
 	
+	int selectAllUserCnt();
+	
+	UserVo selectUser(String userid);
+	
 }

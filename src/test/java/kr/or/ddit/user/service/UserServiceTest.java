@@ -3,6 +3,7 @@ package kr.or.ddit.user.service;
 import static org.junit.Assert.*;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -62,7 +63,7 @@ public class UserServiceTest extends ModelTestConfig {
 		pageVo.setPageSize(10);
 		
 		/***When***/
-		List<UserVo> userVo = userService.selectPagingUser(pageVo);
+		Map<String, Object> userVo = userService.selectPagingUser(pageVo);
 		logger.debug("List<UserVo> selectPagingUser userVo.size {}",userVo.size());
 		
 		/***Then***/
