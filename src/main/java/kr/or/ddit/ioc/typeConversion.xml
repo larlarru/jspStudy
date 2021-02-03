@@ -5,8 +5,8 @@
 	
 	<bean id="user" class="kr.or.ddit.user.model.UserVo" >
 		<property name="reg_dt" value="2021-01-11" />
-		<property name="hire_dt" value="01-29-2021" />
-		<property name="price" value="1000" />
+<!-- 		<property name="hire_dt" value="01-29-2021" /> -->
+<!-- 		<property name="price" value="1000" /> -->
 	</bean>
 	
 <!-- 	<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean" > -->

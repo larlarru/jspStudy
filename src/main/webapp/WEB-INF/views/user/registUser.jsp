@@ -2,6 +2,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,10 +19,7 @@
 
 <%@ include file="/WEB-INF/views/common/common_lib.jsp" %>
 
-<!-- Custom styles for this template -->
-<link href="${cp}/css/dashboard.css"
-	rel="stylesheet">
-<link href="${cp}/css/blog.css" rel="stylesheet">
+
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
@@ -52,7 +52,7 @@
 	
 	
 	<%@ include file="/WEB-INF/views/common/header.jsp" %>
-
+	
 	<div class="container-fluid">
 		<div class="row">
 
@@ -73,11 +73,21 @@
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="userid" name="userid"
 								placeholder="사용자 아이디" value="${param.userid}"/>
+							
+							<br>
+							<span style="color:red"><form:errors path="userVo.userid" /></span>
+							<br><br>
+							
 							<input type="file" class="form-control" name="profile"/>
 						</div>
 					</div>
 
 					<div class="form-group">
+						
+<%-- 						spring message : <spring:message code="LANG" /> --%>
+						spring message : <spring:message code="GREETING" arguments="${S_USER.userid }" />
+						<br>
+					
 						<label for="usernm" class="col-sm-2 control-label">사용자 이름</label>
 						<div class="col-sm-10">
 							<input type="text" class="form-control" id="usernm" name="usernm"

@@ -14,7 +14,7 @@
 
 <title>Jsp</title>
 
-<%@ include file="/WEB-INF/views/common/common_lib.jsp" %>%>
+<%@ include file="/WEB-INF/views/common/common_lib.jsp" %>
 
 <link href="${cp }/css/dashboard.css" rel="stylesheet">
 <link href="${cp }/css/blog.css" rel="stylesheet">

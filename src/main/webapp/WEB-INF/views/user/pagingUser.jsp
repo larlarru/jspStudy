@@ -47,7 +47,7 @@
 		})
 		
 		$("#userRegist").on("click", function() {
-			location.href="${cp}/user/registUser";
+			location.href="${cp }/user/registUserPage";
 		})
 	})
 </script>
@@ -119,6 +119,8 @@
 						</div>
 				
 						<a id="userRegist" class="btn btn-default pull-right">사용자 등록</a>
+						<a class="btn btn-default pull-right" href="${cp }/user/excelDownload" >사용자 엑셀 다운로드</a>
+						
 				
 						<div class="text-center">
 							<% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
@@ -131,7 +133,7 @@
 								     전체 페이지 수 : 4페이지
 								 --%> 
 								 <li class="prev">
-									<a href="${cp }/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
+									<a href="${cp }/user/pagingUser?page=1&pageSize=${pageVo.pageSize}">«</a>
 								</li>
 								
 								<c:forEach begin="1" end="${pagination }" var="i"> 
@@ -140,13 +142,13 @@
 											<li class="active"><span>${i }</span></li>
 										</c:when>
 										<c:otherwise>
-											<li><a href="${cp }/pagingUser?page=${i }&pageSize=${pageVo.pageSize}">${i }</a></li>
+											<li><a href="${cp }/user/pagingUser?page=${i }&pageSize=${pageVo.pageSize}">${i }</a></li>
 										</c:otherwise>
 									</c:choose>
 								</c:forEach>
 								
 								<li class="next">
-									<a href="${cp }/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize}">»</a>
+									<a href="${cp }/user/pagingUser?page=${pagination }&pageSize=${pageVo.pageSize}">»</a>
 								</li>
 							</ul>
 						</div>

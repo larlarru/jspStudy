@@ -26,8 +26,8 @@ public class TypeConversionTest {
 	public void userTest() {
 		
 		logger.debug("user.getAge() : {}", user.getReg_dt());
-		logger.debug("user.getHire_dt() : {}", user.getHire_dt());
-		logger.debug("user.getPrice : {}", user.getPrice());
+//		logger.debug("user.getHire_dt() : {}", user.getHire_dt());
+//		logger.debug("user.getPrice : {}", user.getPrice());
 		
 	}
 
