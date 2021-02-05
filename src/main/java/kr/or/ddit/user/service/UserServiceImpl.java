@@ -59,17 +59,10 @@ public class UserServiceImpl implements UserService {
 		resultMap.put("pageVo", pageVo);
 		resultMap.put("userList", userDao.selectPagingUser(pageVo));
 
-//		resultMap.put("userCnt", userDao.selectAllUserCnt());
-		
-//		int userCnt = userDao.selectAllUserCnt();
 		
 		resultMap.put("pagination", 
-				(int)Math.ceil( (double)userDao.selectAllUserCnt() )/pageVo.getPageSize() );
+				(int)Math.ceil( (double)userDao.selectAllUserCnt() /pageVo.getPageSize() ) );
 				
-//		resultMap.put("pagination", 
-//				(int)Math.ceil( ((Integer)resultMap.get("userCnt")).doubleValue()/pageVo.getPageSize()) );
-		
-		
 		return resultMap;
 	}
 	

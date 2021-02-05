@@ -19,6 +19,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -92,6 +93,43 @@ public class UserController {
 		return "tiles.user.pagingUser";
 	}
 	
+	// 사용자 리스트가 업슨 상태의 화면만 응답으로 생성
+	@RequestMapping("pagingUserAjaxView")
+	public String pagingUserAjaxView() {
+		
+		return "tiles.user.pagingUserAjax";
+	}
+	
+	// ajax를 쓴 페이징 ajax
+	@RequestMapping("pagingUserAjax")
+	public String pagingUserAjax(@RequestParam( defaultValue = "1") int page, 
+			@RequestParam( defaultValue = "5" )int pageSize,
+			Model model) {
+		
+		PageVo pageVo = new PageVo(page, pageSize);
+		
+		model.addAllAttributes(userService.selectPagingUser(pageVo));
+		
+		return "jsonView";
+	}
+	
+	// ajax+html를 쓴 페이징
+	@RequestMapping("pagingUserAjaxHtml")
+	public String pagingUserAjaxHtml(@RequestParam( defaultValue = "1") int page, 
+			@RequestParam( defaultValue = "5" )int pageSize,
+			Model model) {
+		
+		PageVo pageVo = new PageVo(page, pageSize);
+		
+		model.addAllAttributes(userService.selectPagingUser(pageVo));
+		
+		return "user/pagingUserAjaxHtml";
+	}
+	
+	/*
+		pagingUserAjaxHtml ==> /WEB-INF/views/user/pagingUserAjaxHtml.jsp
+	*/
+	
 	
 //	@RequestMapping("pagingUser")
 	public String pagingUser(PageVo pageVo) {
@@ -123,6 +161,12 @@ public class UserController {
 		return "user/registUser";
 	}
 	
+	@RequestMapping(path="registTiles", method=RequestMethod.GET)
+	public String registTiles() {
+		return "tiles.user.registUser";
+	}
+	
+	
 	@RequestMapping("registUser")
 	public String registUser(@Valid UserVo userVo, BindingResult result, MultipartFile profile, Model model ) {
 		
@@ -146,6 +190,7 @@ public class UserController {
 		
 		logger.debug("userVo {}, profile {}", userVo, profile);
 		
+		
 		try {
 			
 			profile.transferTo(new File("d:\\upload\\" + profile.getOriginalFilename()));
@@ -155,7 +200,7 @@ public class UserController {
 		}
 		
 		userVo.setFilename(profile.getOriginalFilename());
-		userVo.setRealfilename(profile.getOriginalFilename());
+		userVo.setRealfilename("d:\\upload\\" + profile.getOriginalFilename());
 		
 		int registCnt = userService.registUser(userVo);
 		
@@ -209,7 +254,7 @@ public class UserController {
 		}
 		
 		userVo.setFilename(profile.getOriginalFilename());
-		userVo.setRealfilename(profile.getOriginalFilename());
+		userVo.setRealfilename("d:\\upload\\" + profile.getOriginalFilename());
 		
 		int modifyCnt = userService.modifyUser(userVo);
 		

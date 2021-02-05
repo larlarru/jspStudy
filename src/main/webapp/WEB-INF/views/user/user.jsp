@@ -88,8 +88,8 @@
 					<div class="form-group">
 						<label for="userNm" class="col-sm-2 control-label">사용자 사진</label>
 						<div class="col-sm-10">
-						<a href="${cp }/profileDownload?userid=${user.userid}">
-							<img src="${cp}/profile?userid=${user.userid}"><br>
+						<a href="${cp }/user/profileDownload?userid=${user.userid}">
+							<img src="${cp }/user/profile?userid=${user.userid}"><br>
 						</a>
 							<label class="control-label">${user.userid}</label>
 						</div>

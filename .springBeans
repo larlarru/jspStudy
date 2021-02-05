@@ -13,6 +13,7 @@
 		<config>src/main/resources/kr/or/ddit/config/spring/application-context.xml</config>
 		<config>src/main/resources/kr/or/ddit/config/spring/root-context.xml</config>
 		<config>src/main/resources/kr/or/ddit/config/spring/datasource_context.xml</config>
+		<config>src/main/resources/kr/or/ddit/config/spring/interceptor-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

@@ -2,9 +2,7 @@ package kr.or.ddit.mvc.web;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.OutputStream;
 
 import javax.annotation.Resource;
 import javax.servlet.ServletOutputStream;
@@ -36,6 +34,7 @@ public class FileDownloadController {
 		
 		model.addAttribute("realFilename", userVo.getRealfilename());
 		model.addAttribute("filename", userVo.getFilename());
+		
 		return "fd";
 		
 		
@@ -50,11 +49,11 @@ public class FileDownloadController {
 		String realFilename = userVo.getRealfilename(); 
 		String filename = userVo.getFilename();
 				
-		response.setHeader("Content-Diposition", "attachement; filename="+filename);
+		response.setHeader("Content-Disposition", "attachement; filename="+filename);
 				
 		ServletOutputStream sos;
 		try {
-				
+			
 			sos = response.getOutputStream();
 			FileInputStream fis = new FileInputStream(new File(realFilename));
 			byte[] buf = new byte[512];

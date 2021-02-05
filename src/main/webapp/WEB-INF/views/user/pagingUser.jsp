@@ -123,8 +123,6 @@
 						
 				
 						<div class="text-center">
-							<% PageVo pageVo  = (PageVo)request.getAttribute("pageVo");
-							   int pagination =	(int)request.getAttribute("pagination");%>
 							<ul class="pagination">
 								
 								<%-- pagination 값이 4이므로 1부터 4까지 4번 반복된다
