@@ -15,6 +15,7 @@
   	<param-value>
   		classpath:/kr/or/ddit/config/spring/root-context.xml
   		classpath:/kr/or/ddit/config/spring/datasource_context.xml
+  		classpath:/kr/or/ddit/config/spring/aop-context.xml
   	</param-value>
   </context-param>
   
