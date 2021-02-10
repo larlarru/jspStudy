@@ -37,7 +37,10 @@ public class LoginController {
 	
 	// post 메소드만 처리하도록 설정
 	@RequestMapping(path="process", method = RequestMethod.POST )
+//	@RequestMapping("process")
 	public String process(UserVo userVo, HttpSession session, RedirectAttributes ra) {
+		
+		logger.debug("process진입");
 		
 		logger.debug("userVo : {}", userVo);
 		
