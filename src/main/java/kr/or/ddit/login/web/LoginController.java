@@ -35,6 +35,11 @@ public class LoginController extends HttpServlet{
 	// get으로 보내든, post로 보내든
 	
 	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.getRequestDispatcher("/login.jsp").forward(req, resp);
+	}
+	
+	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		/*
 		 * // 클라이언트가 서버로 요청을 보낼시 브라우저에 의해 같이 전송된 쿠키 정보 확인 Cookie[] cookies =
